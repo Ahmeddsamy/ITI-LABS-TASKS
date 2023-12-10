@@ -1,5 +1,5 @@
 "use strict";
-let currentIndex = 0;
+let currentPhoto = 0;
 let images = [];
 let sliderInterval;
 
@@ -14,7 +14,8 @@ serverPhotos.send();
 serverPhotos.onreadystatechange = function () {
   if (serverPhotos.readyState === 4 && serverPhotos.status === 200) {
     images = JSON.parse(serverPhotos.responseText);
-    showSlide(currentIndex);
+    console.log(images);
+    showSlide(currentPhoto);
   }
 };
 
@@ -25,11 +26,10 @@ function showSlide(index) {
 }
 
 function startSlider() {
-  stopSlider(); // Stop previous interval if exists
   sliderInterval = setInterval(() => {
-    currentIndex = (currentIndex + 1) % images.length;
-    showSlide(currentIndex);
-  }, 2000); // Change slide every 2 seconds (adjust as needed)
+    currentPhoto = (currentPhoto + 1) % images.length;
+    showSlide(currentPhoto);
+  }, 2000);
 }
 
 function stopSlider() {
@@ -37,11 +37,11 @@ function stopSlider() {
 }
 
 function nextSlide() {
-  currentIndex = (currentIndex + 1) % images.length;
-  showSlide(currentIndex);
+  currentPhoto = (currentPhoto + 1) % images.length;
+  showSlide(currentPhoto);
 }
 
 function prevSlide() {
-  currentIndex = (currentIndex - 1 + images.length) % images.length;
-  showSlide(currentIndex);
+  currentPhoto = (currentPhoto - 1 + images.length) % images.length;
+  showSlide(currentPhoto);
 }
