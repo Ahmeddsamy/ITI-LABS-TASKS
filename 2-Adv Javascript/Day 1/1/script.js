@@ -3,7 +3,6 @@ let currentPhoto = 0;
 let images = [];
 let sliderInterval;
 
-// Fetch slider images using XMLHttpRequest
 const serverPhotos = new XMLHttpRequest();
 serverPhotos.open(
   "GET",
@@ -25,6 +24,15 @@ function showSlide(index) {
   document.getElementById("slider-text").textContent = image.title;
 }
 
+function nextSlide() {
+  currentPhoto = (currentPhoto + 1) % images.length;
+  showSlide(currentPhoto);
+}
+
+function prevSlide() {
+  currentPhoto = (currentPhoto - 1 + images.length) % images.length;
+  showSlide(currentPhoto);
+}
 function startSlider() {
   sliderInterval = setInterval(() => {
     currentPhoto = (currentPhoto + 1) % images.length;
@@ -34,14 +42,4 @@ function startSlider() {
 
 function stopSlider() {
   clearInterval(sliderInterval);
-}
-
-function nextSlide() {
-  currentPhoto = (currentPhoto + 1) % images.length;
-  showSlide(currentPhoto);
-}
-
-function prevSlide() {
-  currentPhoto = (currentPhoto - 1 + images.length) % images.length;
-  showSlide(currentPhoto);
 }

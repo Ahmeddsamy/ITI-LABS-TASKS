@@ -14,7 +14,7 @@
 #slider-text {
   position: absolute;
   bottom: 4px;
-  /* left: 20px; */
+
   color: #fff;
   font-size: 18px;
   background-color: rgba(127, 255, 212, 0.236);
@@ -30,7 +30,5 @@
 }
 
 button {
-  /* margin: 2px;
-  padding: 5px; */
   cursor: pointer;
 }
