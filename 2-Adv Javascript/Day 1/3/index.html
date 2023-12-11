@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <form id="contactForm">
+        <h2>Payment Form</h2>
+        <label for="title">Title:</label>
+        <select id="title" name="title">
+          <option value="Mr">Mr</option>
+          <option value="Ms">Ms</option>
+        </select>
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" required />
+
+        <label for="cardType">Card Type:</label>
+        <select id="cardType" name="cardType">
+          <option value="Visa">Visa</option>
+          <option value="MasterCard">MasterCard</option>
+        </select>
+
+        <button type="button" onclick="addUser()">Add User</button>
+      </form>
+
+      <table id="userTable">
+        <tr>
+          <th>Title</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Card Type</th>
+          <th>Action</th>
+        </tr>
+      </table>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
