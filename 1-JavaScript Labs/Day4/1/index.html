@@ -4,8 +4,127 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>1</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      form {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 300px;
+        text-align: center;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      input,
+      select,
+      button {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-size: 16px;
+      }
+
+      input:invalid {
+        background-color: #fdd;
+        border: 1px solid #c00;
+      }
+
+      input:valid {
+        background-color: #dfd;
+        border: 1px solid #080;
+      }
+
+      button {
+        background-color: #4caf50;
+        color: #fff;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+
+      #fullNameError,
+      #passwordMatchError {
+        color: red;
+        margin-bottom: 10px;
+      }
+
+      label.checkbox {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+      }
+
+      #termsCheckbox {
+        margin-right: 8px;
+      }
+    </style>
   </head>
   <body>
+    <form id="registrationForm" onsubmit="return registerUser()">
+      <label for="fullName">Full Name:</label>
+      <input
+        type="text"
+        id="fullName"
+        name="fullName"
+        placeholder="Enter your Name:"
+        required
+        onfocus="this.style.border='solid 1px blue'"
+        onblur="validateFullName()"
+        autocomplete="new-fullName"
+      />
+      <div id="fullNameError"></div>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="city">City:</label>
+      <select id="city" name="city">
+        <option value="Cairo">City 1</option>
+        <option value="Mansoura">City 2</option>
+        <option value="Bani Suef">City 3</option>
+      </select>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required />
+
+      <label for="repeatPassword">Repeat Password:</label>
+      <input
+        type="password"
+        id="repeatPassword"
+        name="repeatPassword"
+        required
+        onblur="validatePasswordMatch()"
+      />
+
+      <div id="passwordMatchError" style="color: red"></div>
+
+      <label>
+        <input type="checkbox" id="termsCheckbox" required />
+        I accept the terms and conditions
+      </label>
+
+      <button type="submit">Register</button>
+    </form>
+
     <script src="script.js"></script>
   </body>
 </html>
