@@ -1,0 +1,55 @@
+@use "base";
+
+@mixin pColor($color: pink) {
+  -o-color: $color;
+  -webkit-color: $color;
+  color: $color;
+}
+
+// Variables
+$color: red;
+h1 {
+  color: $color;
+}
+
+//include
+h2 {
+  @include pColor;
+}
+//function
+h3 {
+  scale: base.scale(1.2);
+}
+//inhertience
+%class {
+  background-color: aqua;
+  border: 2px solid blue;
+}
+h4 {
+  @extend %class;
+}
+
+h5 {
+  color: darkblue;
+  &:hover {
+    background-color: brown;
+  }
+}
+
+$height: 50;
+@for $i from 1 to 4 {
+  .w-#{$i} {
+    height: #{$height}px;
+  }
+  $height: $height + 50;
+}
+
+$sizes: 40px, 50px, 80px;
+
+@each $size in $sizes {
+  .icon-#{$size} {
+    font-size: $size;
+    height: $size;
+    width: $size;
+  }
+}

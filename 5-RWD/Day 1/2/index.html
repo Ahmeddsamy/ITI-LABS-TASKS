@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your CV</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        display: grid;
+        grid-template-columns: repeat(16, 1fr);
+        text-align: center;
+        background-color: #333;
+        color: #fff;
+        padding: 20px 0;
+      }
+
+      header h1 {
+        grid-column: 1 / span 16;
+        font-size: 5vw; /* Using viewport units for font size */
+      }
+
+      header img {
+        grid-column: 1 / span 16;
+        max-width: 100%; /* Ensure the image doesn't exceed the container */
+        height: auto;
+      }
+
+      @media (min-width: 600px) {
+        header img {
+          display: none; /* Hide the image on small screens */
+        }
+      }
+
+      main {
+        display: grid;
+        grid-template-columns: repeat(16, 1fr);
+        padding: 20px;
+      }
+
+      main .content {
+        grid-column: 3 / span 12; /* Center content on larger screens */
+      }
+
+      @media (max-width: 599px) {
+        main .content {
+          grid-column: 1 / span 16; /* Full width on small screens */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Ahmed Samy</h1>
+      <img src="5x5 photo.jpeg" alt="Header Image" />
+    </header>
+
+    <main>
+      <div class="content"></div>
+    </main>
+  </body>
+</html>

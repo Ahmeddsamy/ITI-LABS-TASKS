@@ -1,0 +1,57 @@
+h1 {
+  color: red;
+}
+
+h2 {
+  -o-color: pink;
+  -webkit-color: pink;
+  color: pink;
+}
+
+h3 {
+  scale: 1.8;
+}
+
+h4 {
+  background-color: aqua;
+  border: 2px solid blue;
+}
+
+h5 {
+  color: darkblue;
+}
+h5:hover {
+  background-color: brown;
+}
+
+.w-1 {
+  height: 50px;
+}
+
+.w-2 {
+  height: 100px;
+}
+
+.w-3 {
+  height: 150px;
+}
+
+.icon-40px {
+  font-size: 40px;
+  height: 40px;
+  width: 40px;
+}
+
+.icon-50px {
+  font-size: 50px;
+  height: 50px;
+  width: 50px;
+}
+
+.icon-80px {
+  font-size: 80px;
+  height: 80px;
+  width: 80px;
+}
+
+/*# sourceMappingURL=style.css.map */
