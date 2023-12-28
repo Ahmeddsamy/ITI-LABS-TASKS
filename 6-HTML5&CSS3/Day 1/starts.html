@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .star-rating {
+        display: flex;
+      }
+
+      .star {
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+        transition: transform 0.2s ease-in-out;
+      }
+
+      .star:hover {
+        /* transform: scale(1.1); */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="star-rating">
+      <img src="empty-star.png" alt="Empty Star" class="star" data-rating="0" />
+      <img src="empty-star.png" alt="Empty Star" class="star" data-rating="0" />
+      <img src="empty-star.png" alt="Empty Star" class="star" data-rating="0" />
+      <img src="empty-star.png" alt="Empty Star" class="star" data-rating="0" />
+      <img src="empty-star.png" alt="Empty Star" class="star" data-rating="0" />
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $(".star").hover(
+          // Mouse over
+          function () {
+            const currentRating = $(this).data("rating");
+            if (currentRating === 0) {
+              // Fill all stars before the current one
+              $(this).prevAll(".star").attr("src", "filled-star.png");
+              // Remove fill on all stars after the current one
+              $(this).nextAll(".star").attr("src", "empty-star.png");
+              // Fill the current star
+              $(this).attr("src", "filled-star.png");
+            }
+          },
+          // Mouse out
+          function () {
+            const currentRating = $(this).data("rating");
+            if (currentRating === 0) {
+              // Remove fill on all stars
+              $(".star").attr("src", "empty-star.png");
+            }
+          }
+        );
+
+        $(".star").click(function () {
+          const currentRating = $(this).data("rating");
+
+          if (currentRating === 0) {
+            // Fill all stars before and including the current one
+            $(this).prevAll(".star").addBack().attr("src", "filled-star.png");
+            // Remove fill on all stars after the current one
+            $(this).nextAll(".star").attr("src", "empty-star.png");
+            // Fix the rating
+            $(this).data("rating", 1);
+          } else {
+            // Remove fill on all stars
+            $(".star").attr("src", "empty-star.png");
+            // Unfix the rating
+            $(this).data("rating", 0);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

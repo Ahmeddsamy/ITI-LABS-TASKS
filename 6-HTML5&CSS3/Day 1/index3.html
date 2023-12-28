@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Semantic HTML5 Elements Example</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+
+      section {
+        max-width: 600px;
+        margin: auto;
+      }
+
+      h1 {
+        color: #333;
+      }
+
+      time {
+        font-style: italic;
+      }
+
+      meter {
+        width: 100%;
+      }
+
+      mark {
+        background-color: yellow;
+      }
+
+      progress {
+        width: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <section>
+
+        <time datetime="2024-01-01">Posted on January 1, 2024</time>
+      </article>
+
+      <article>
+        <meter value="25" min="0" max="100">25%</meter>
+      </article>
+
+      <article>
+        <p>
+
+          <mark>highlight</mark>
+        </p>
+      </article>
+
+      <article>
+        <progress value="1" max="100" id="Pro"></progress>
+      </article>
+    </section>
+    <script>  var progress = document.getElementById("Pro");
+        var interval = setInterval(() => {
+            if (progress.value < progress.max) {
+                progress.value += 20;
+                console.log(progress.value)
+            }
+            else{
+                clearInterval(interval)
+            }
+            console.log("log")
+
+        }, 1000)</script>
+  </body>
+</html>

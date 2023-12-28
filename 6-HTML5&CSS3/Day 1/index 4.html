@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Star Rating Control</title>
+    <style>
+      .star {
+        width: 50px;
+        height: 50px;
+        background-image: url("empty_star.png");
+        background-size: cover;
+        display: inline-block;
+        cursor: pointer;
+      }
+
+      .star.filled {
+        background-image: url("Filled_star.png");
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="star" data-rating="0"></div>
+    <div class="star" data-rating="0"></div>
+    <div class="star" data-rating="0"></div>
+    <div class="star" data-rating="0"></div>
+    <div class="star" data-rating="0"></div>
+    <br />
+    <br />
+    <br />
+    <video width="400" controls>
+      <source src="file_example_MP4_480_1_5MG.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+
+    <br />
+    <br />
+    <br />
+    <audio controls>
+      <source src="file_example_MP3_700KB.mp3" type="audio/mp3" />
+      Your browser does not support the audio tag.
+    </audio>
+
+    <script>
+      // Function to handle the star rating behavior
+      function handleStarRating(star) {
+        star.addEventListener("mouseover", function () {
+          star.classList.add("filled");
+        });
+
+        star.addEventListener("mouseout", function () {
+          if (!star.getAttribute("data-clicked")) {
+            star.classList.remove("filled");
+          }
+        });
+
+        star.addEventListener("click", function () {
+          if (star.getAttribute("data-clicked")) {
+            star.classList.remove("filled");
+            star.removeAttribute("data-clicked");
+          } else {
+            star.classList.add("filled");
+            star.setAttribute("data-clicked", "true");
+          }
+        });
+      }
+
+      // Get all star elements and attach the event listeners
+      const stars = document.querySelectorAll(".star");
+      stars.forEach(function (star) {
+        handleStarRating(star);
+      });
+    </script>
+  </body>
+</html>
