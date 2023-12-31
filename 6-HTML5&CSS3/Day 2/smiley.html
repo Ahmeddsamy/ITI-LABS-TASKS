@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      canvas {
+        border: 1px solid #000;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="200" height="200"></canvas>
+
+    <script>
+      var canvas = document.getElementById("myCanvas");
+      var ctx = canvas.getContext("2d");
+
+      function drawSadFace() {
+        // Draw sad face image
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Draw a circle for the face
+        ctx.beginPath();
+        ctx.arc(100, 100, 50, 0, 2 * Math.PI);
+        ctx.fillStyle = "yellow";
+        ctx.fill();
+        ctx.closePath();
+
+        // Draw eyes
+        ctx.beginPath();
+        ctx.arc(80, 80, 5, 0, 2 * Math.PI);
+        ctx.arc(120, 80, 5, 0, 2 * Math.PI);
+        ctx.fillStyle = "black";
+        ctx.fill();
+        ctx.closePath();
+
+        // Draw mouth
+        ctx.beginPath();
+        ctx.arc(100, 120, 20, 0, Math.PI, false);
+        ctx.strokeStyle = "black";
+        ctx.stroke();
+        ctx.closePath();
+      }
+
+      function drawSmileyFace() {
+        // Draw smiley face image
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Draw a circle for the face
+        ctx.beginPath();
+        ctx.arc(100, 100, 50, 0, 2 * Math.PI);
+        ctx.fillStyle = "yellow";
+        ctx.fill();
+        ctx.closePath();
+
+        // Draw eyes
+        ctx.beginPath();
+        ctx.arc(80, 80, 5, 0, 2 * Math.PI);
+        ctx.arc(120, 80, 5, 0, 2 * Math.PI);
+        ctx.fillStyle = "black";
+        ctx.fill();
+        ctx.closePath();
+
+        // Draw smile
+        ctx.beginPath();
+        ctx.arc(100, 120, 20, 0, Math.PI, true);
+        ctx.strokeStyle = "black";
+        ctx.stroke();
+        ctx.closePath();
+      }
+
+      canvas.addEventListener("mousedown", function () {
+        drawSmileyFace();
+        // Additional scaling logic here if needed
+      });
+
+      canvas.addEventListener("mouseup", function () {
+        drawSadFace();
+        // Additional scaling logic here if needed
+      });
+
+      // Initial drawing on page load
+      drawSadFace();
+    </script>
+  </body>
+</html>
