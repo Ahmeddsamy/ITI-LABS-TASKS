@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      /* Task 1 */
+      .curved-border {
+        border-radius: 20px;
+        border: 2px solid #333;
+        padding: 20px;
+        margin: 10px;
+        width: 50%;
+      }
+
+      /* Task 2 */
+      .custom-font {
+        font-family: "Sono", sans-serif;
+      }
+
+      /* Task 3 */
+      .column-paragraph {
+        columns: 2;
+        column-gap: 20px;
+      }
+
+      /* Task 4 */
+      .vertical-name {
+        transform: rotate(-90deg);
+        height: 10px;
+        width: 20px;
+        /* white-space: nowrap; */
+        margin-left: 50px;
+      }
+
+      /* Task 5 */
+      .rotate-image {
+        margin-left: 300px;
+        transition: transform 0.3s, width 0.3s, height 0.3s;
+      }
+
+      .rotate-image:hover {
+        transform: rotate(-45deg) scale(1.5);
+      }
+
+      /* Task 6 */
+      @keyframes rotateAndMove {
+        0% {
+          transform: rotate(0) translateX(0);
+          width: 100px;
+          height: 100px;
+        }
+        100% {
+          transform: rotate(180deg) translateX(200px);
+          width: 150px;
+          height: 150px;
+        }
+      }
+
+      .animate-image {
+        animation: rotateAndMove 5s infinite;
+        margin-left: 600px;
+      }
+      /* Task 7 and 8 */
+      .tiger-container {
+        position: absolute;
+        left: 0;
+        top: 50%; /* Adjust as needed */
+        transform: translateY(-50%);
+        animation: walkAnimation 10s linear infinite; /* Adjust the duration as needed */
+      }
+
+      @keyframes walkAnimation {
+        0%,
+        100% {
+          transform: scaleX(1);
+          left: 0;
+        }
+        10% {
+          transform: scaleX(-1);
+          left: 0;
+        }
+        50% {
+          transform: scaleX(-1);
+          left: calc(100% - 200px); /* Adjust the width of the tiger */
+        }
+
+        100% {
+          transform: scaleX(1);
+          left: 0;
+        }
+      }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Coiny&family=Sono:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Task 1 -->
+    <div class="curved-border"></div>
+
+    <!-- Task 2 -->
+    <p class="custom-font">This paragraph uses a custom font.</p>
+
+    <!-- Task 3 -->
+    <p class="column-paragraph">
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed quam, quidem
+      rem quis nemo recusandae cupiditate iusto quibusdam, temporibus ullam eum
+      excepturi accusamus non earum possimus velit nobis dolorem harum! Lorem
+      ipsum dolor sit amet consectetur, adipisicing elit. Accusantium reiciendis
+      quibusdam, deleniti unde iure aspernatur illo natus dolore animi tenetur,
+      ipsum harum recusandae vero? Minima iusto corrupti expedita distinctio
+      assumenda? Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Perferendis, voluptate praesentium. Facilis natus, nobis quam reiciendis
+      perferendis iure aspernatur quas distinctio vel voluptate porro a ex
+      commodi doloribus officia harum. Lorem ipsum dolor sit, amet consectetur
+      adipisicing elit. Inventore, ex nam. Fugit hic cum labore accusantium
+      maxime facilis quasi ea ipsa possimus magni, veritatis atque, doloribus ab
+      debitis iste quae? Lorem ipsum dolor, sit amet consectetur adipisicing
+      elit. Quo repellat, magni atque dolore, consequuntur quam vero nulla
+      dolor, totam repellendus itaque enim quod blanditiis est ducimus impedit.
+      Ut, voluptatibus deleniti. Lorem ipsum dolor sit amet consectetur
+      adipisicing elit. Ut voluptatum in quod commodi explicabo ipsa et
+      repellat! Nemo quia, tenetur nihil rem nostrum blanditiis odio numquam
+      commodi. Molestiae, totam pariatur. Lorem ipsum dolor sit, amet
+      consectetur adipisicing elit. Officia maxime culpa ut accusamus animi hic
+      magnam quo possimus nesciunt? Dolorum, officiis! Eos adipisci animi
+      obcaecati velit modi ab, maxime in. Lorem ipsum, dolor sit amet
+      consectetur adipisicing elit. Architecto dolorem repudiandae unde.
+      Perspiciatis excepturi illum corporis sint quod adipisci iure odio dicta
+      ducimus a voluptatem, est eveniet similique, ipsum sequi!
+    </p>
+    <br />
+    <br />
+
+    <!-- Task 4 -->
+    <div class="vertical-name">Ahmed</div>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <!-- Task 5 -->
+    <img
+      class="rotate-image"
+      src="your-image.jpg"
+      alt="Rotating Image"
+      width="100"
+      height="100"
+    />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <!-- Task 6 -->
+    <img
+      class="animate-image"
+      src="your-image (2).jpg"
+      alt="Animated Image"
+      width="100"
+      height="100"
+    />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <!-- Task 7 and 8 -->
+    <div class="tiger-container">
+      <img
+        class="tiger-image"
+        src="tiger.gif"
+        alt="Tiger Image"
+        width="200"
+        height="150"
+      />
+    </div>
+  </body>
+</html>
