@@ -36,11 +36,9 @@
       (function ($) {
         $.fn.toggleContent = function () {
           return this.each(function () {
-            // Reference to the toggle button and content
             var $toggleButton = $(this);
             var $content = $toggleButton.next(".toggle-content");
 
-            // Set up click event
             $toggleButton.on("click", function () {
               $content.slideToggle();
             });
@@ -48,7 +46,6 @@
         };
       })(jQuery);
 
-      // Example usage
       $(document).ready(function () {
         $(".toggle-button").toggleContent();
       });
