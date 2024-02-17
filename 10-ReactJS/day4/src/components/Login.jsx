@@ -6,6 +6,14 @@ import { useNavigate } from "react-router-dom";
 import { tokenContext } from "../context/tokenContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+
+function setCookie(name, value, expirationHours) {
+  const d = new Date();
+  d.setTime(d.getTime() + expirationHours * 60 * 60 * 1000);
+  let expires = "expires=" + d.toUTCString();
+  document.cookie = `${name}=${value};${expires};path=/;Secure;SameSite=Strict`;
+}
+
 export default function Login() {
   let { setToken } = useContext(tokenContext);
   let navigate = useNavigate();
@@ -20,7 +28,7 @@ export default function Login() {
       );
       console.log(data);
       if (data.message == "Welcome Home") {
-        localStorage.setItem("token", data.token);
+        setCookie("token", data.token, 1);
         setToken(data.token);
         navigate("/");
       }

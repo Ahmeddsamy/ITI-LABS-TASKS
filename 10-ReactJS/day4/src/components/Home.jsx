@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   const [products, setProducts] = useState([]);
@@ -41,19 +42,28 @@ export default function Home() {
       <div className="container py-5 mb-5">
         <div className="row">
           {products.length === 0 ? (
-            <FontAwesomeIcon icon={faSpinner} spin className="fa-3x" />
+            <div className="col-12 text-center">
+              <FontAwesomeIcon icon={faSpinner} spin className="fa-3x" />
+            </div>
           ) : (
             products.map((product, index) => (
-              <div key={index} className="col-md-4">
-                <img
-                  src={product.imageURL}
-                  className="w-50"
-                  alt={product.productName}
-                />
-                <h3>{product.productName}</h3>
-                <p>{product.description}</p>
-                <p>Price: ${product.finalPrice}</p>
-                <p>Stock: {product.stock}</p>
+              <div key={index} className="col-md-4 mb-4">
+                <div className="card h-100">
+                  <Link to={`/product/${product._id}`}>
+                    <img
+                      src={product.imageURL}
+                      className="card-img-top product-img"
+                      alt={product.productName}
+                      style={{ objectFit: "cover", height: "200px" }}
+                    />
+                  </Link>
+                  <div className="card-body">
+                    <h5 className="card-title">{product.productName}</h5>
+                    <p className="card-text">{product.description}</p>
+                    <p className="card-text">Price: ${product.finalPrice}</p>
+                    <p className="card-text">Stock: {product.stock}</p>
+                  </div>
+                </div>
               </div>
             ))
           )}

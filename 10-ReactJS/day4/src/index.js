@@ -11,8 +11,8 @@ import TokenContectProvider from "./context/tokenContext";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <TokenContectProvider>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
+    {/* <React.StrictMode> */}
+    <App />
+    {/* </React.StrictMode> */}
   </TokenContectProvider>
 );
