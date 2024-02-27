@@ -1,0 +1,175 @@
+<form class="form-group w-50" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <div class="mb-3">
+    <label for="fullName" class="form-label">Full Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="fullName"
+      formControlName="fullName"
+      [ngClass]="{
+        'is-invalid':
+          (fullName?.touched || fullName?.dirty) && fullName?.invalid
+      }"
+    />
+    <div
+      *ngIf="fullName?.invalid && (fullName?.dirty || fullName?.touched)"
+      class="invalid-feedback"
+    >
+      <div *ngIf="fullName?.errors?.['required']">Full Name is required</div>
+      <div *ngIf="fullName?.errors?.['minlength']">
+        Full Name must be at least 5 characters long
+      </div>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input
+      type="email"
+      class="form-control"
+      id="email"
+      formControlName="email"
+      [ngClass]="{
+        'is-invalid': (email?.touched || email?.dirty) && email?.invalid
+      }"
+    />
+    <div
+      *ngIf="email?.invalid && (email?.dirty || email?.touched)"
+      class="invalid-feedback"
+    >
+      <div *ngIf="email?.errors?.['required']">Email is required</div>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input
+      type="password"
+      class="form-control"
+      id="password"
+      formControlName="password"
+      [ngClass]="{
+        'is-invalid':
+          (password?.touched || password?.dirty) && password?.invalid
+      }"
+    />
+    <div
+      *ngIf="password?.invalid && (password?.dirty || password?.touched)"
+      class="invalid-feedback"
+    >
+      <div *ngIf="password?.errors?.['required']">Password is required</div>
+      <div *ngIf="password?.errors?.['minlength']">
+        Password must be at least 6 characters long
+      </div>
+    </div>
+  </div>
+  <div formArrayName="mobileNumbers" class="mb-3">
+    <label class="form-label">Mobile Numbers</label>
+    <div
+      *ngFor="let mobileNumber of mobileNumbers.controls; let i = index"
+      class="mb-2"
+    >
+      <input
+        type="text"
+        class="form-control"
+        [id]="'mobileNumber' + i"
+        [formControlName]="i"
+        [ngClass]="{
+          'is-invalid':
+            (mobileNumber?.touched || mobileNumber?.dirty) &&
+            mobileNumber?.invalid
+        }"
+      />
+      <div
+        *ngIf="
+          mobileNumber?.invalid &&
+          (mobileNumber?.dirty || mobileNumber?.touched)
+        "
+        class="invalid-feedback"
+      >
+        <div *ngIf="mobileNumber?.errors?.['required']">
+          Mobile Number is required
+        </div>
+        <div *ngIf="mobileNumber?.errors?.['pattern']">
+          Enter a valid phone number
+        </div>
+      </div>
+      <button
+        type="button"
+        class="btn btn-outline-danger btn-sm mt-1"
+        (click)="removeMobileNumber(i)"
+        *ngIf="i > 0"
+      >
+        Remove
+      </button>
+    </div>
+    <button
+      type="button"
+      class="btn btn-outline-secondary btn-sm"
+      (click)="addMobileNumber()"
+    >
+      Add Another Mobile
+    </button>
+  </div>
+  <div formGroupName="address" class="mb-3">
+    <h3>Address</h3>
+    <div class="mb-3">
+      <label for="city" class="form-label">City</label>
+      <input
+        type="text"
+        class="form-control"
+        id="city"
+        formControlName="city"
+        [ngClass]="{
+          'is-invalid': (city?.touched || city?.dirty) && city?.invalid
+        }"
+      />
+      <div
+        *ngIf="city?.invalid && (city?.dirty || city?.touched)"
+        class="invalid-feedback"
+      >
+        <div *ngIf="city?.errors?.['required']">City is required</div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="postalCode" class="form-label">Postal Code</label>
+      <input
+        type="text"
+        class="form-control"
+        id="postalCode"
+        formControlName="postalCode"
+        [ngClass]="{
+          'is-invalid':
+            (postalCode?.touched || postalCode?.dirty) && postalCode?.invalid
+        }"
+      />
+      <div
+        *ngIf="
+          postalCode?.invalid && (postalCode?.dirty || postalCode?.touched)
+        "
+        class="invalid-feedback"
+      >
+        <div *ngIf="postalCode?.errors?.['required']">
+          Postal code is required
+        </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="street" class="form-label">Street</label>
+      <input
+        type="text"
+        class="form-control"
+        id="street"
+        formControlName="street"
+        [ngClass]="{
+          'is-invalid': (street?.touched || street?.dirty) && street?.invalid
+        }"
+      />
+      <div
+        *ngIf="street?.invalid && (street?.dirty || street?.touched)"
+        class="invalid-feedback"
+      >
+        <div *ngIf="street?.errors?.['required']">Street is required</div>
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-primary" type="submit">Submit</button>
+</form>
