@@ -1,0 +1,32 @@
+<div *ngIf="product" class="container mt-5">
+  <div class="card">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <!-- Product Image -->
+        <img
+          [src]="product.image"
+          class="card-img"
+          alt="{{ product.title }}"
+          style="max-width: 100%; height: auto"
+        />
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <!-- Product Title -->
+          <h2 class="card-title">{{ product.title }}</h2>
+          <!-- Product Description -->
+          <p class="card-text">{{ product.description }}</p>
+          <!-- Product Price -->
+          <p class="card-text"><strong>Price:</strong> ${{ product.price }}</p>
+          <!-- Action Buttons -->
+          <button (click)="addToCart(product.id)" class="btn btn-primary">
+            Add to Cart
+          </button>
+          <button (click)="backToProducts()" class="btn btn-secondary ml-2">
+            Back to Products
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
