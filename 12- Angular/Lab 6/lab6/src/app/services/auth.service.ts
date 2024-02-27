@@ -10,16 +10,16 @@ export class AuthService {
   }
 
   get isUserLogged() {
-    return localStorage.getItem('userToken') ? true : false;
+    return localStorage.getItem('token') ? true : false;
   }
 
   login(userEmail: string, password: string) {
     let backendToken: string = 'hellouser';
-    localStorage.setItem('userToken', backendToken);
+    localStorage.setItem('token', backendToken);
     this.user.next(true);
   }
   logout() {
-    localStorage.removeItem('userToken');
+    localStorage.removeItem('token');
     this.user.next(false);
   }
 
